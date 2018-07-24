@@ -1,0 +1,77 @@
+<ion-header>
+
+  <ion-navbar color="personalizado">
+    <button ion-button menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><span style="font-size:16px;">Puntos de Entrega</span></ion-title>
+  </ion-navbar>
+  <div style="background-color:#34ca04; color:#fff; width: 35px; 
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        left: 64%;
+        top: 16px;
+        position: absolute;
+
+
+    ">{{contadorSincro}}</div>
+      <div style="background-color:#e20515; color:#fff; width: 35px; 
+              border-radius: 20px;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              font-size: 20px;
+              left: 76%;
+              top: 16px;
+              position: absolute;
+      
+      
+          ">{{contadorGuardado}}</div>
+
+          <div style="background-color:#929294; color:#fff; width: 35px;
+                        border-radius: 20px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 20px;
+                        left: 88%;
+                        top: 16px;
+                        position: absolute;
+                
+                
+                    ">{{ContadorTotal}}</div>
+
+</ion-header>
+
+
+
+<ion-content padding>
+    <ion-list>
+      <!-- <button ion-button> -->
+      <button ion-item *ngFor="let ruta of Rutas; let nIndex = index" (click)="ir(ruta.id)" [disabled]="ruta.b">
+        <ion-icon name="square-outline" item-start *ngIf="ruta.b == 0" color="danger"></ion-icon>
+        <ion-icon name="checkbox-outline" *ngIf="ruta.b == 1" item-start color="danger"></ion-icon> 
+        <!-- <ion-checkbox color="danger"  [(ngModel)]="ruta.b" [disabled]="ruta.b"></ion-checkbox> -->
+        <!-- <ion-label> -->
+          <h2 > {{ruta.nombre}}</h2>
+          <p>{{ruta.direccion}}</p>
+        <!-- </ion-label> -->
+        
+ 
+      </button>
+      <!-- </button> -->
+    </ion-list>
+
+    <ion-fab right bottom >
+      <button ion-fab color="danger" (click)="Sincronizar()">
+        <ion-icon name="sync"></ion-icon>
+      </button>
+    </ion-fab>
+
+</ion-content>
